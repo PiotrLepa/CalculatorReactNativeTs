@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   View,
-  Text
+  Text,
 } from 'react-native';
+
+import SplashScreen from 'react-native-splash-screen'
 
 import { isNumeric } from 'rxjs/util/isNumeric';
 
@@ -20,6 +22,10 @@ let currentOperation: Operation | null = null;
 let canAddDot = true;
 
 const App = () => {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   const [result, setResult] = useState(defaultResultValue);
 
